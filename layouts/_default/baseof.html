@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title> {{ or .Title .Site.Title }}{{ if ne .Kind "raflyadek"}} || {{ .CurrentSection.Title }} {{ end }}</title>
+        <title>{{ .Title }}</title>
+        {{ $css := "css/style.css" | relURL }}
+        <link rel="stylesheet" href="{{ $css }}" >
+    </head>
+    <body>
+        {{ block "post" . }}
+        {{ end }}
+    </body>
+</html>
