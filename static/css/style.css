@@ -89,6 +89,7 @@ h2 {
 }
 
 p, ul, ol {
+  color: white;
   font-size: 1.8rem;
   margin: 0 0 .8em;
 }
