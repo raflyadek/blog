@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> {{ or .Title .Site.Title }}{{ if ne .Kind "raflyadek"}} || {{ .CurrentSection.Title }} {{ end }}</title>
-        <title>{{ .Title }}</title>
+        <title>{{ .Page.Title }}</title>
+        <!-- change if we want to use scss/bootstrap/tailwind -->
         {{ $css := "css/style.css" | relURL }}
         <link rel="stylesheet" href="{{ $css }}" >
     </head>
@@ -12,4 +12,4 @@
         {{ block "post" . }}
         {{ end }}
     </body>
-</html>
+</html> 
