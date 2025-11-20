@@ -4,12 +4,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ .Page.Title }}</title>
-        <!-- change if we want to use scss/bootstrap/tailwind -->
-        {{ $css := "css/style.css" | relURL }}
-        <link rel="stylesheet" href="{{ $css }}" >
+        
+        <!-- 
+        FINAL FIX: Using resources.Fingerprint for cache-busting AND using $css.Permalink | absURL 
+        to ensure the path always starts from the site root (/) and avoids the homepage pathing issue.
+        -->
+        {{ $style := resources.Get "css/style.css" }}
+        {{ $css := $style | resources.Fingerprint }}
+        <link rel="stylesheet" href="{{ $css.Permalink | absURL }}" integrity="{{ $css.Data.Integrity }}">
+        
     </head>
     <body>
-        {{ block "post" . }}
-        {{ end }}
+        {{ partial "header.html" . }}
+        {{ block "post" . }} {{ end }}
+        {{ partial "footer.html" .}}
     </body>
-</html> 
+</html>
+
+
