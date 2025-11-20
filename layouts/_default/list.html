@@ -1,48 +1,69 @@
-{{ define "post" }}
-<article class="list">
+{{ define "main" }}
+{{/* Template for all list pages: /posts/, /tags/, and individual tags (e.g., /tags/hugo/).
+   Using .Kind comparisons is the most stable approach to avoid context errors.
+*/}}
 
-  {{ if .IsHome }}
-    {{ range .Site.RegularPages.ByDate.Reverse }}
-      <section class="post-item">
+{{ $pagesToDisplay := .Pages }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
 
-        <!-- TITLE -->
-        <h2>
-          <a href="{{ .RelPermalink }}">
-            {{ .Title }}
-          </a>
-        </h2>
+<div class="container">
+    <article class="list">
+        
+        {{/* 1. Taxonomy Index Page (/tags/) - Lists all tags available */}}
+        {{ if eq .Kind "taxonomy" }}
+            <h1 class="main-title">All Tags</h1>
+            
+            {{/* Show the list of all tags */}}
+            {{ range .Site.Taxonomies.tags }}
+                <section class="post-item">
+                    <h2>
+                        <a href="{{ .Page.RelPermalink }}">
+                            {{ .Page.Title }} ({{ .Count }})
+                        </a>
+                    </h2>
+                </section>
+            {{ end }}
+            
+            {{ $pagesToDisplay = slice }} {{/* Do not list posts below the tags index */}}
 
-        <!-- SNIPPET (Summary or automatic excerpt) -->
-        <p>{{ .Summary }}</p>
+        {{/* 2. Taxonomy Term Page (/tags/hugo/) - Lists posts for a specific tag */}}
+        {{ else if eq .Kind "term" }}
+            <h1 class="main-title">Tag: {{ .Title }}</h1>
 
-        <!-- READ MORE -->
-        <p>
-          <a href="{{ .RelPermalink }}">Read more →</a>
-        </p>
+        {{/* 3. Section List Page (/posts/) - Lists all posts in the section */}}
+        {{ else if eq .Kind "section" }}
+            <h1 class="main-title">All Musings</h1>
+        {{ end }}
 
-      </section>
-    {{ end }}
 
-  {{ else }}
-    {{/* Section list (/posts) */}}
-    {{ range .Pages.ByDate.Reverse }}
-      <section class="post-item">
+        {{/* Display the list of pages (posts for sections/terms) */}}
+        {{ if $pagesToDisplay }}
+            {{ range $pagesToDisplay.ByDate.Reverse }}
+                <section class="post-item">
+                    <!-- TITLE -->
+                    <h2>
+                        <a href="{{ .RelPermalink }}">
+                            {{ .Title }}
+                        </a>
+                    </h2>
+                    
+                    <!-- DATE -->
+                    <span class="date-meta">
+                        {{ (.Date | time).Format $dateFormat }}
+                    </span>
 
-        <h2>
-          <a href="{{ .RelPermalink }}">
-            {{ .Title }}
-          </a>
-        </h2>
+                    <!-- SUMMARY -->
+                    <p>{{ .Summary }}</p>
 
-        <p>{{ .Summary }}</p>
+                    <!-- READ MORE -->
+                    <p>
+                        <a href="{{ .RelPermalink }}">Read more →</a>
+                    </p>
 
-        <p>
-          <a href="{{ .RelPermalink }}">Read more →</a>
-        </p>
+                </section>
+            {{ end }}
+        {{ end }}
+    </article>
+</div>
 
-      </section>
-    {{ end }}
-  {{ end }}
-
-</article>
 {{ end }}

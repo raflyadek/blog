@@ -2,7 +2,6 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'raflyadek'
 relativeURLs = true
-disableKinds = ['taxonomy', 'term']
 disableFastRender = true
 [menu]
   [[menu.main]]

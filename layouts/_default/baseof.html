@@ -3,11 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ .Page.Title }}</title>
+        
+        <title>
+            {{ if .IsHome }}
+                {{ .Site.Title }}
+            {{ else }}
+                {{ .Page.Title }}
+            {{ end }}
+        </title>
         
         <!-- 
-        FINAL FIX: Using resources.Fingerprint for cache-busting AND using $css.Permalink | absURL 
-        to ensure the path always starts from the site root (/) and avoids the homepage pathing issue.
+        FIX: Using resources.Fingerprint for cache-busting AND using $css.Permalink | absURL 
+        to ensure the path always starts from the site root (/).
         -->
         {{ $style := resources.Get "css/style.css" }}
         {{ $css := $style | resources.Fingerprint }}
@@ -16,9 +23,7 @@
     </head>
     <body>
         {{ partial "header.html" . }}
-        {{ block "post" . }} {{ end }}
+        {{ block "main" . }} {{ end }}
         {{ partial "footer.html" .}}
     </body>
 </html>
-
-
