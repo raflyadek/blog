@@ -1,0 +1,511 @@
+/* custom font jetbrains mono */
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-BoldItalic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-ExtraBoldItalic.woff2') format('woff2');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-MediumItalic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- FULL SOFT DARK MODE ---
+   Background: #1e1f20 (Very Dark Charcoal, same as LLM UI)
+   Text Color: #dddddd (Soft Off-White, non-harsh)
+   Accent/Link Color: #aaaaaa (Muted Light Gray)
+   Card/Bar Background: #282828 (Slightly lighter than body for contrast)
+   Muted/Metadata: #777777 (Darker Gray)
+*/
+
+html {
+  /* 1rem = 10px base for easier rem calculations */
+  font-size: 62.5%;
+}
+
+ /* Keep footer at bottom */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;   /* full height */
+  font-family: 'JetBrains Mono';
+  /* Base size 1.6rem = 16px */
+  font-size: 1.6rem;
+  /* IMPROVED READABILITY: Increased line height */
+  line-height: 1.6; 
+  
+  /* NEW: Very Dark Charcoal background applied globally */
+  background: #1e1f20;
+}
+
+h2, h3, h4, h5, h6 {
+  /* Increased top margin for better spacing from previous paragraphs */
+  margin: 4.5rem 0 1.2rem;
+  /* NEW: Soft Off-White headings */
+  color: #dddddd;
+}
+
+/* TIGHTER SPACING FOR LIST TITLES */
+.post-item h2 {
+  margin-bottom: 0.5rem; 
+}
+
+h1 {
+  font-size: 3.2rem;
+  /* NEW: Soft Off-White titles */
+  color: #dddddd;
+}
+
+/* UPDATED: Style for the date/read-time metadata on single posts */
+.date-reading-time {
+  /* NEW: Muted gray color for metadata */
+  color: #777777; 
+  /* Reduced margin to bring content closer to metadata */
+  margin-bottom: 1.5rem;
+  display: block;
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+p, ul, ol {
+  /* NEW: Paragraph text uses Soft Off-White color */
+  color: #dddddd;
+  /* UPDATED: Set to 1.7rem (17px) for primary reading comfort */
+  font-size: 1.7rem; 
+  /* Increased bottom margin for better paragraph separation */
+  margin: 0 0 1.5em;
+}
+
+a {
+  text-decoration: none;
+  /* NEW: Links use the Muted Light Gray accent color */
+  color: #aaaaaa;
+}
+
+a:hover {
+  /* NEW: Pure White on hover for maximum pop/contrast */
+  color: #ffffff; 
+}
+
+/* --- NEW HOMEPAGE STYLES START --- */
+
+/* Style for the "About" H1 title (class="main-title" in index.html) */
+.main-title {
+    margin-top: 1rem;
+    padding-top: 0;
+    /* UPDATED: Changed to 3px dashed line using the accent color for better visibility in dark mode */
+    border-bottom: 3px dashed #aaaaaa; 
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    color: #dddddd;
+}
+
+/* Style for the "My Works & Projects" and "Recent Musings" H2 headings (class="section-heading") */
+.section-heading {
+    font-size: 2.8rem;
+    /* NEW: Heading color uses Soft Off-White */
+    color: #dddddd;
+    /* NEW: Divider is a subtle light dashed line */
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2); 
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    /* color: #ffffff;  */
+    /* text-decoration: underline;
+    background: none; */
+}
+
+.section-heading a {
+    /* color: #ffffff;  */
+    text-decoration: underline;
+    background: none;
+}
+ 
+/* --- Works and Experience Split Grid --- */
+.works-experience-grid {
+    display: grid;
+    /* Default to a single column on small screens */
+    grid-template-columns: 1fr; 
+    gap: 4rem; /* Gap between the Works and Experience columns */
+}
+
+/* Use a media query to enable two columns on desktop/larger screens */
+@media (min-width: 768px) {
+    .works-experience-grid {
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+    }
+    /* Reduce vertical gap on large screens where there's already horizontal gap */
+    .works-column, .experience-column {
+        padding-top: 0;
+    }
+}
+
+
+/* Styles for the Project Grid (class="projects-grid") */
+.projects-grid {
+    display: grid;
+    gap: 2rem;
+    /* Only one column inside the 'Works' column */
+    grid-template-columns: 1fr; 
+}
+
+/* Styles for individual project cards (class="project-card") */
+.project-card {
+    /* NEW: Cards use a slightly lighter dark background for separation */
+    background: #282828;
+    padding: 2rem;
+    border-radius: 8px;
+    /* Removed shadow, added a subtle border */
+    box-shadow: none; 
+    border: 1px solid #333333; 
+    transition: background 0.2s, transform 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+    background: #333333; /* Darker background on hover */
+}
+
+.project-card h3 {
+    /* Project title uses Muted Light Gray accent */
+    color: #aaaaaa;
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.project-card p {
+    font-size: 1.6rem;
+    color: #dddddd;
+}
+
+/* Styles for individual experience items */
+.experience-card {
+    /* NEW: Cards use a slightly lighter dark background for separation, similar to project cards */
+    background: #282828;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem; /* Space between experience entries */
+    transition: background 0.2s, transform 0.2s; 
+}
+
+/* ADDED: Hover style for experience cards */
+.experience-card:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+    background: #333333; /* Darker background on hover */
+}
+
+.experience-card h3 {
+    /* Experience title uses Muted Light Gray accent */
+    color: #aaaaaa;
+    margin-top: 0;
+    font-size: 2rem;
+    margin-bottom: 0; /* Tighter spacing for subtitle */
+}
+
+.experience-meta {
+    /* Muted color for meta data (dates/location) */
+    color: #777777; 
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.experience-description {
+    font-size: 1.6rem;
+    /* Current color: #dddddd (Soft Off-White) */
+    color: #dddddd; /* This is the color for the main description text */
+    /* FIX: Set margin to 0 to prevent extra space at the bottom of the card */
+    margin: 0;
+}
+
+/* .experience-description {
+    color: green;
+} */
+
+/* Style for individual items in the list to give them breathing room */
+.post-item {
+  margin-bottom: 4rem;
+  padding-bottom: 1rem;
+  /* NEW: Divider is subtle light dashed line */
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* FIX: Remove the bottom border from the final post item on the list page 
+   to prevent it from stacking with the pagination's border-top. */
+article.list section.post-item:last-of-type {
+    border-bottom: none;
+}
+
+/* NEW: Style for the simple recent post list on the homepage */
+.post-item-simple {
+  margin-bottom: 1rem; /* Less space needed than the full post item */
+  padding: 0.5rem 0;
+}
+
+.post-item-simple h3 {
+  margin: 0; /* Remove default H3 margin */
+  font-size: 1.8rem;
+  font-weight: 400; /* Make it look less like a strong heading */
+  color: #dddddd; /* Soft Off-White text */
+}
+
+/* Styling the date part of the simple list */
+.post-item-simple .date-meta {
+  /* Muted color for metadata */
+  color: #777777; 
+  font-size: 1.6rem;
+}
+
+/* --- NEW HOMEPAGE STYLES END --- */
+
+
+/* --- Centering Fix Start (Edited Block) --- */
+
+/* 1. .container (Wraps Header/Footer and all content on the homepage) */
+.container {
+  /* Defines the width constraint and centers the block element */
+  max-width: calc(44em + 2rem); 
+  margin: 0 auto;
+  /* Adjusting padding: 2rem top/bottom for the content sections, 1rem left/right for mobile safety */
+  padding: 2rem 1rem; 
+  /* NEW: Background is transparent/inherits body background */
+  background: transparent; 
+  /* Removed box shadow */
+  box-shadow: none; 
+}
+
+/* 2. article.list (Blog List /posts/ page) */
+article.list {
+  /* CRITICAL FIX for /posts/ page: Restore centering to the main article wrapper */
+  padding: 2rem 1rem; 
+  max-width: calc(44em + 2rem); 
+  margin: 0 auto; 
+}
+
+/* 2. article.single (Individual post pages) */
+article.single {
+  /* Enforce left alignment for content on single pages */
+  text-align: left; 
+  /* ADDED padding for better visual spacing inside the container on desktop/mobile */
+  padding: 0 1rem; 
+  max-width: 100%; 
+  margin: 0; 
+}
+
+
+/* 3. nav-header (Inside Container) - Centers links inside container */
+.nav-header {
+  /* color: #dddddd; 
+    text-decoration: underline;
+    background: none; */
+  display: flex;
+  justify-content: center;   /* center the menu items */
+  gap: 2rem;
+  /* Remove vertical padding here since it's now in .container */
+  padding: 0 0 2rem 0; 
+}
+
+/* 4. footer (Inside Container) - Centers text inside container */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  /* NEW: Footer background is same as body */
+  background: #1e1f20; 
+}
+
+/* --- Centering Fix End --- */
+
+.footer-p {
+  margin: 0;
+  color: #dddddd; /* Soft Off-White footer text */
+}
+
+footer {
+  /* This style is generally applied to the HTML <footer> element */
+  margin-top: auto;     /* pushes footer to bottom */
+  width: 100%; /* Ensure it spans full width for background */
+}
+
+.footer a {
+  /* Footer links use the Muted Light Gray accent color */
+  color: #aaaaaa;
+  font-size: 1.4rem;
+  background: none;
+  text-decoration: underline;
+  background: none;
+}
+
+.footer a:hover {
+  color: #ffffff; 
+}
+
+/* Style for the date in the main post list */
+.post-item .date-meta {
+  display: block; 
+  margin-top: 0;
+  margin-bottom: 2rem; /* Spacing below the date before the summary */
+  font-size: 1.6rem;
+  /* Muted gray color */
+  color: #777777; 
+}
+
+/* --- Pagination Styling --- */
+.pagination-nav {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    /* NEW: Divider is subtle light dashed line */
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.pagination-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.page-item {
+    margin: 0 0.5rem;
+}
+
+.page-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    /* Dark mode styling */
+    border: 1px solid #444444; /* Dark gray border */
+    border-radius: 4px;
+    color: #aaaaaa; /* Muted Light Gray text color */
+    background-color: #282828; /* Slightly lighter background for button */
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    font-size: 1.6rem;
+}
+
+.page-link:hover {
+    /* Highlight with slightly lighter background */
+    background-color: #333333; 
+    color: #ffffff; 
+    border-color: #aaaaaa;
+}
+
+.page-item.current .page-link {
+    /* Current page uses the Muted Light Gray accent color */
+    background-color: #aaaaaa; 
+    border-color: #aaaaaa;
+    color: #1e1f20; /* Dark text on light accent background */
+    font-weight: bold;
+    cursor: default;
+}
+
+.page-item.ellipsis .page-link {
+    border: none;
+    background: none;
+    color: #777777;
+    cursor: default;
+}
+
+.page-item.prev-next a {
+    background: none;
+    border: none;
+    padding: 0.5rem 0.5rem;
+    font-style: italic;
+    /* Uses Muted Light Gray accent color */
+    color: #aaaaaa;
+}
+
+.page-item.prev-next a:hover {
+    /* Pure white text on hover */
+    color: #ffffff; 
+    text-decoration: underline;
+    background: none;
+}
+
+/* --- NEW Tag Cloud Styles for /tags/ Index Page --- */
+
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Space between tags */
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    justify-content: center; /* Center the tag block */
+}
+
+.tag-link {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    /* Dark mode tag styling */
+    background-color: #282828; /* Slightly lighter background */
+    color: #aaaaaa; /* Muted Light Gray accent for text */
+    border: 1px solid #444444;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.tag-link:hover {
+    /* Invert colors on hover using the Muted Light Gray accent */
+    background-color: #aaaaaa; 
+    color: #1e1f20; /* Dark text */
+    text-decoration: none;
+    border-color: #aaaaaa;
+}

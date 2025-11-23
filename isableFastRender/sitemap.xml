@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-11-20T15:35:45+07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/my-first-post/</loc>
+    <lastmod>2025-11-19T14:58:46+07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-11-19T14:58:46+07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/introduction/</loc>
+    <lastmod>2025-11-15T19:09:47+07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/about/</loc>
+  </url>
+</urlset>

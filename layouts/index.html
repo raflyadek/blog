@@ -1,0 +1,45 @@
+{{ define "main" }}
+{{/* Changed define name from "post" to "main" for template consistency. */}}
+<div class="container">
+    
+    <!-- 1. ABOUT SECTION -->
+    <article class="single">
+        <!-- Display the content of content/_index.md (Your About text) -->
+        <h1 class="main-title">{{ .Title }}</h1>
+        {{ .Content }}
+    </article>
+
+    <!-- 2. WORKS/PROJECT SECTION -->
+    <section class="mt-8 mb-12">
+        <!-- <h2 class="section-heading">Experience & Projects</h2> -->
+        {{ partial "works-experience.html" . }}
+    </section>
+
+    <!-- 3. RECENT BLOG LIST (Max 3) -->
+    <section class="mt-8 mb-12">
+        <h2 class="section-heading">Recent Post</h2>
+        {{ $recentPosts := first 3 (where .Site.RegularPages "Section" "posts") }}
+        {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+        
+        {{ if $recentPosts }}
+            {{ range $recentPosts }}
+                <section class="post-item-simple">
+                    <!-- Display only Title and Date for a cleaner homepage look -->
+                    <h3>
+                        <!-- REMOVED: text-white class to allow CSS to control the color -->
+                        <a href="{{ .RelPermalink }}"> 
+                            {{ .Title }}
+                        </a>
+                        <!-- Date displayed inline after the title -->
+                        <span class="date-meta"> 
+                          — {{ (.Date | time).Format $dateFormat }}
+                        </span>
+                    </h3>
+                </section>
+            {{ end }}
+        {{ else }}
+            <p>No recent posts available yet.</p>
+        {{ end }}
+    </section>
+</div>
+{{ end }}

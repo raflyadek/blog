@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>
+            {{ if .IsHome }}
+                {{ .Site.Title }}
+            {{ else }}
+                {{ .Page.Title }}
+            {{ end }}
+        </title>
+        
+        <!-- 
+        FIX: Using resources.Fingerprint for cache-busting AND using $css.Permalink | absURL 
+        to ensure the path always starts from the site root (/).
+        -->
+        {{ $style := resources.Get "css/style.css" }}
+        {{ $css := $style | resources.Fingerprint }}
+        <link rel="stylesheet" href="{{ $css.Permalink | absURL }}" integrity="{{ $css.Data.Integrity }}">
+        
+    </head>
+    <body>
+        {{ partial "header.html" . }}
+        {{ block "main" . }} {{ end }}
+        {{ partial "footer.html" .}}
+    </body>
+</html>

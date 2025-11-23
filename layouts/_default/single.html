@@ -1,0 +1,18 @@
+{{ define "main" }}
+{{ $readTime := mul (div (countwords .Content) 220.0) 60 }}
+{{ $minutes := math.Floor (div $readTime 60) }}
+{{ $seconds := mod $readTime 60 }}
+{{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+
+<div class="container">
+  <article class="single">
+    <h1>{{ .Title }}</h1>
+    <div class="date-reading-time">  
+      {{ (.Date | time).Format $dateFormat }} —
+      {{ $minutes }} min read
+    </div>
+    {{ .Content }}
+  </article>
+</div>
+
+{{ end }}

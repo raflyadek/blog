@@ -1,3 +1,26 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'raflyadek'
+relativeURLs = true
+disableFastRender = true
+
+[pagination]
+  pagerSize = 10 # Replaces the deprecated 'paginate' key
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Blog"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 3
+
+[params]
+    dateFormat = "Jan 2, 2006"
+
