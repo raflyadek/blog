@@ -166,14 +166,43 @@ a:hover {
     border-bottom: 1px dashed rgba(255, 255, 255, 0.2); 
     padding-bottom: 0.5rem;
     margin-bottom: 2rem;
+    /* color: #ffffff;  */
+    /* text-decoration: underline;
+    background: none; */
 }
+
+.section-heading a {
+    /* color: #ffffff;  */
+    text-decoration: underline;
+    background: none;
+}
+ 
+/* --- Works and Experience Split Grid --- */
+.works-experience-grid {
+    display: grid;
+    /* Default to a single column on small screens */
+    grid-template-columns: 1fr; 
+    gap: 4rem; /* Gap between the Works and Experience columns */
+}
+
+/* Use a media query to enable two columns on desktop/larger screens */
+@media (min-width: 768px) {
+    .works-experience-grid {
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+    }
+    /* Reduce vertical gap on large screens where there's already horizontal gap */
+    .works-column, .experience-column {
+        padding-top: 0;
+    }
+}
+
 
 /* Styles for the Project Grid (class="projects-grid") */
 .projects-grid {
     display: grid;
     gap: 2rem;
-    /* Responsive: 1 column on mobile, 2 columns on screens wider than ~600px */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Only one column inside the 'Works' column */
+    grid-template-columns: 1fr; 
 }
 
 /* Styles for individual project cards (class="project-card") */
@@ -204,6 +233,45 @@ a:hover {
     font-size: 1.6rem;
     color: #dddddd;
 }
+
+/* Styles for individual experience items */
+.experience-card {
+    /* NEW: Cards use a slightly lighter dark background for separation, similar to project cards */
+    background: #282828;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem; /* Space between experience entries */
+    transition: background 0.2s, transform 0.2s; 
+}
+
+/* ADDED: Hover style for experience cards */
+.experience-card:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+    background: #333333; /* Darker background on hover */
+}
+
+.experience-card h3 {
+    /* Experience title uses Muted Light Gray accent */
+    color: #aaaaaa;
+    margin-top: 0;
+    font-size: 2rem;
+    margin-bottom: 0.5rem; /* Tighter spacing for subtitle */
+}
+
+.experience-meta {
+    /* Muted color for meta data (dates/location) */
+    color: #777777; 
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.experience-card p {
+    font-size: 1.6rem;
+    color: #dddddd;
+    margin: 0;
+}
+
 
 /* Style for individual items in the list to give them breathing room */
 .post-item {
@@ -278,6 +346,9 @@ article.single {
 
 /* 3. nav-header (Inside Container) - Centers links inside container */
 .nav-header {
+  /* color: #dddddd; 
+    text-decoration: underline;
+    background: none; */
   display: flex;
   justify-content: center;   /* center the menu items */
   gap: 2rem;
@@ -310,6 +381,13 @@ footer {
   /* Footer links use the Muted Light Gray accent color */
   color: #aaaaaa;
   font-size: 1.4rem;
+  background: none;
+  text-decoration: underline;
+  background: none;
+}
+
+.footer a:hover {
+  color: #ffffff; 
 }
 
 /* Style for the date in the main post list */
