@@ -2,8 +2,9 @@
 date = '2025-11-19T14:58:46+07:00'
 draft = false
 title = 'My First Post'
+tags = ['life', 'manga', 'work']
 +++
-Welcome to my blog post. This first part will show on the homepage.
+Welcome to my blog post. lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
 
 <!--more-->
 

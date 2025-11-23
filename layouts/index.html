@@ -17,7 +17,7 @@
 
     <!-- 3. RECENT BLOG LIST (Max 3) -->
     <section class="mt-8 mb-12">
-        <h2 class="section-heading">Recent Musings</h2>
+        <h2 class="section-heading">Recent Post</h2>
         {{ $recentPosts := first 3 (where .Site.RegularPages "Section" "posts") }}
         {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
         
@@ -26,7 +26,8 @@
                 <section class="post-item-simple">
                     <!-- Display only Title and Date for a cleaner homepage look -->
                     <h3>
-                        <a href="{{ .RelPermalink }}" class="text-white hover:text-[#3d3836]">
+                        <!-- REMOVED: text-white class to allow CSS to control the color -->
+                        <a href="{{ .RelPermalink }}"> 
                             {{ .Title }}
                         </a>
                         <!-- Date displayed inline after the title -->

@@ -1,0 +1,44 @@
+{{ $paginator := .Paginator }}
+{{ $class := "pagination-nav" }}
+
+{{ if gt $paginator.TotalPages 1 }}
+<nav class="{{ $class }}">
+    <ul class="pagination-list">
+        
+        {{ if $paginator.HasPrev }}
+            <li class="page-item prev-next">
+                <a href="{{ $paginator.Prev.URL }}" class="page-link" aria-label="Previous Page">
+                    ← Newer Posts
+                </a>
+            </li>
+        {{ end }}
+
+        {{ range $paginator.Pagers }}
+            {{/* Check if this pager is the current page */}}
+            {{ if eq .PageNumber $paginator.PageNumber }}
+                <li class="page-item current">
+                    <span class="page-link">{{ .PageNumber }}</span>
+                </li>
+            {{/* Check if this pager is an ellipsis placeholder (PageNumber will be 0) */}}
+            {{ else if eq .PageNumber 0 }}
+                <li class="page-item ellipsis">
+                    <span class="page-link">...</span>
+                </li>
+            {{/* Otherwise, it's a clickable page link */}}
+            {{ else }}
+                <li class="page-item">
+                    <a href="{{ .URL }}" class="page-link">{{ .PageNumber }}</a>
+                </li>
+            {{ end }}
+        {{ end }}
+
+        {{ if $paginator.HasNext }}
+            <li class="page-item prev-next">
+                <a href="{{ $paginator.Next.URL }}" class="page-link" aria-label="Next Page">
+                    Older Posts →
+                </a>
+            </li>
+        {{ end }}
+    </ul>
+</nav>
+{{ end }}

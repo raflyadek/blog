@@ -1,67 +1,68 @@
 {{ define "main" }}
 {{/* Template for all list pages: /posts/, /tags/, and individual tags (e.g., /tags/hugo/).
-   Using .Kind comparisons is the most stable approach to avoid context errors.
+   This template is now updated to clearly separate the Tag Index page from the Post Lists.
 */}}
 
-{{ $pagesToDisplay := .Pages }}
 {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
 
 <div class="container">
     <article class="list">
         
-        {{/* 1. Taxonomy Index Page (/tags/) - Lists all tags available */}}
+        {{/* 1. Handle Taxonomy Index Page: /tags/ */}}
         {{ if eq .Kind "taxonomy" }}
             <h1 class="main-title">All Tags</h1>
             
-            {{/* Show the list of all tags */}}
+            {{/* Show the list of all tags using the new tag-cloud style */}}
+            <div class="tag-cloud">
             {{ range .Site.Taxonomies.tags }}
-                <section class="post-item">
-                    <h2>
-                        <a href="{{ .Page.RelPermalink }}">
-                            {{ .Page.Title }} ({{ .Count }})
-                        </a>
-                    </h2>
-                </section>
+                <a href="{{ .Page.RelPermalink }}" class="tag-link">
+                    {{ .Page.Title }} ({{ .Count }})
+                </a>
             {{ end }}
+            </div>
             
-            {{ $pagesToDisplay = slice }} {{/* Do not list posts below the tags index */}}
-
-        {{/* 2. Taxonomy Term Page (/tags/hugo/) - Lists posts for a specific tag */}}
-        {{ else if eq .Kind "term" }}
-            <h1 class="main-title">Tag: {{ .Title }}</h1>
-
-        {{/* 3. Section List Page (/posts/) - Lists all posts in the section */}}
-        {{ else if eq .Kind "section" }}
-            <h1 class="main-title">All Musings</h1>
-        {{ end }}
-
-
-        {{/* Display the list of pages (posts for sections/terms) */}}
-        {{ if $pagesToDisplay }}
-            {{ range $pagesToDisplay.ByDate.Reverse }}
-                <section class="post-item">
-                    <!-- TITLE -->
-                    <h2>
-                        <a href="{{ .RelPermalink }}">
-                            {{ .Title }}
-                        </a>
-                    </h2>
-                    
-                    <!-- DATE -->
-                    <span class="date-meta">
-                        {{ (.Date | time).Format $dateFormat }}
-                    </span>
-
-                    <!-- SUMMARY -->
-                    <p>{{ .Summary }}</p>
-
-                    <!-- READ MORE -->
-                    <p>
-                        <a href="{{ .RelPermalink }}">Read more →</a>
-                    </p>
-
-                </section>
+        {{/* 2. Handle Section List (/posts/) and Taxonomy Term List (/tags/hugo/) */}}
+        {{ else }}
+            
+            {{ if eq .Kind "term" }}
+                <h1 class="main-title">Tag: {{ .Title }}</h1>
+            {{ else if eq .Kind "section" }}
+                <h1 class="main-title">All Post</h1>
             {{ end }}
+
+            {{/* Display the list of pages using the Paginator object */}}
+            {{ if .Paginator }}
+                {{ range .Paginator.Pages }}
+                    <section class="post-item">
+                        <!-- TITLE -->
+                        <h2>
+                            <a href="{{ .RelPermalink }}">
+                                {{ .Title }}
+                            </a>
+                        </h2>
+                        
+                        <!-- DATE -->
+                        <span class="date-meta">
+                            {{ (.Date | time).Format $dateFormat }}
+                        </span>
+
+                        <!-- SUMMARY -->
+                        <p>{{ .Summary }}</p>
+
+                        <!-- READ MORE -->
+                        <p>
+                            <a href="{{ .RelPermalink }}">Read more →</a>
+                        </p>
+
+                    </section>
+                {{ end }}
+            
+                <!-- RENDER CUSTOM PAGINATION PARTIAL -->
+                {{ partial "pagination.html" . }}
+            {{ else }}
+                <p>No posts found in this section or tag.</p>
+            {{ end }}   
+            
         {{ end }}
     </article>
 </div>
