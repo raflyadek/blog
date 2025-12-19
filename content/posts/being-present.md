@@ -1,6 +1,6 @@
 +++
 date = '2025-12-17T19:09:47+07:00'
-draft = true
+draft = false
 title = 'Being Present'
 tags = ['life']
 +++
