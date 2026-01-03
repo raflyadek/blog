@@ -4,8 +4,10 @@ draft = true
 title = 'You Will Make Mistakes'
 tags = ['life', 'work']
 +++
-Welcome to my blog post. lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
 
+Welcome to my blog post. lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
 <!--more-->
 
 Everything after this is only visible on the full post page.
+
+but when its behind you, its behind you
