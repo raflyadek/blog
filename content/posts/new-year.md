@@ -1,7 +1,7 @@
 +++
 date = '2025-12-31T17:46:48+07:00'
 draft = false
-title = 'New Year'
+title = 'Happy New Year'
 +++
 
 The year 2025 is sure a remarkable year in my life, a lot of things happens. Some bad, some good, but i made it to the end. I have some *ritual* that i do in this year.
