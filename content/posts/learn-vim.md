@@ -1,10 +1,18 @@
 +++
 date = '2026-08-09T17:00:28+07:00'
-draft = true
-title = 'Learn Vim'
+draft = false 
+title = 'Learn Neovim'
 +++
 
-I like watching [The PrimeTime](https://www.youtube.com/@ThePrimeTimeagen), he is a fun person to watch for me who is a self-taught programmer, i learn a couple of thing from him talking about something on programming world, and one time i see his video talking about neovim and thats so cool.
+I like watching [The PrimeTime](https://www.youtube.com/@ThePrimeTimeagen), he is a fun person to watch for me who is a self-taught programmer, i learn a couple of thing from him talking about something on programming world, and one time i see his video talking about neovim and damn thats so cool, it feels like im seeing magic being cast in front of me.
 
 <!--more-->
-i thought to myself that is a cool way to write a program, its so *hacker*, yeah that time when i see that for the first time, thats exactly my thought, and as much as i want to be like a hacker, i just dont think i have time and brain to learn all that stuff, when i already busy learning about programming itself, so at that time i continue using my vscode for the sake of my sanity. 
+i thought to myself that is a cool way to write a program, its so *hacker*, yeah that time when i see that for the first time, thats exactly my thought, and as much as i want to be like a hacker, i just dont think i have time and brain to learn all that  *magic* stuff, when i already busy learning about programming itself, so at that time i continue using my vscode for the sake of my sanity. 
+
+even tho i really like the idea of using only keyboard to navigate my code, for some reason it feels a little scary, like there is so many things that i have to learn and like i said before i dont think i have the brain for this thing. time passed, and whenever i have to use a mouse or trackpad to do a certian thing while write a code, i just angry for no reason, i dont know why, but it fires something inside me lol. and i finally decided to try vim / neovim, i did some research here and there, then i choose to use neovim as it more *newbie friendly* and HOLY, i wish i just take that leap of faith sooner. i download neovim and using [folke lazyvim](https://www.lazyvim.org/configuration/lazy.nvim) because it already pre-config and i dont have to do much tinkering myself because i just want to using another text editor and quit vscode as fast as possible, and the first thing i do is doing vimtutor on my terminal, just to get a basic like what is *operator, command or motion*. at the time i finished vimtutor, i thought to myself that, i dont think ill ever be able to come back using my previous text editor, after getting taste of some god-tier software like this? yeah no chance lol. 
+
+using neovim is such a delight, because everytime i want to code and open neovim, it brings me joy like literal joy, its so fast, you dont have to touch a trackpad or mouse, you can literally do anything with just a keyboard, and whenever i found some usefull motion i just so happy, for example when i first started write a code in neovim, i just using j to move up or k to move down the cursor, and it works perfectly fine for me, because i can just type any number and add gg after (222gg) and it jump to that line, so i dont have a problem with only moving 1 line each time, until i found ctrl+d to scroll half page down and ctrl+u to scroll half page up, and wow suddenly my world become more brighter than before, or even better when i first remapping the esc to jk for quitting the insert mode and back to normal mode, that moment made my whole week genuinely. that just how great neovim is for me. there is so many more things that are so good about neovim, and so many great motion or macro that i find really cool, but its for another post.
+
+at this point you can kinda see how happy i am from something that simple. i think it can be a reminder to explore something and do the thing you want to do, thats for some reason there is always *something* that stop you from doing *the thing*, take that *risk*, we never know what that thing bring us. like i dont have any idea changing my text editor can make me this happy, like who would have thought? i grateful for giving a chance to something that seems so scary to me before, because otherwise ill never know what it will brings me. 
+
+
