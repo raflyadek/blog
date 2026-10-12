@@ -24,3 +24,8 @@ disableFastRender = true
 [params]
     dateFormat = "Jan 2, 2006"
 
+[markup]
+  [markup.highlight]
+    style = "github"
+    lineNos = true 
+    lineNumbersInTable = true 
